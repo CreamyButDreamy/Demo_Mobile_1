@@ -6,6 +6,7 @@ interface RecipeProps {
   time: string;
   price: string;
   imageUrl: string;
+  onPress?: () => void;
 }
 
 export default function RecipeCard({
@@ -14,9 +15,10 @@ export default function RecipeCard({
   time,
   price,
   imageUrl,
+  onPress,
 }: RecipeProps) {
   return (
-    <TouchableOpacity activeOpacity={0.8} style={styles.card}>
+    <TouchableOpacity style={styles.card} activeOpacity={0.8} onPress={onPress}>
       <Image source={{ uri: imageUrl }} style={styles.image} />
       <View style={styles.infoContainer}>
         <Text style={styles.category}>{category}</Text>

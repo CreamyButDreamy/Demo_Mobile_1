@@ -1,6 +1,16 @@
-import { ScrollView, StatusBar, StyleSheet, Text, View } from "react-native";
+import { useRouter } from "expo-router";
+import { useState } from "react";
+import {
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import RecipeCard from "../src/components/RecipeCard";
+import SearchBar from "../src/components/SearchBar";
 
 const DUMMY_RECIPES = [
   {
@@ -33,28 +43,54 @@ const DUMMY_RECIPES = [
 ];
 
 export default function Page() {
+  const router = useRouter();
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredRecipes = DUMMY_RECIPES.filter((recipe) =>
+    recipe.title.toLowerCase().includes(searchQuery.toLowerCase()),
+  );
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" />
       <View style={styles.header}>
         <Text style={styles.headerTitle}>🍳 Resep Anak Kos</Text>
         <Text style={styles.headerSubtitle}>
-          Makan enak, hemat, dan praktis
+          Makan enak, hemat, dan practical
         </Text>
       </View>
+
+      <SearchBar value={searchQuery} onChangeText={setSearchQuery} />
+
       <ScrollView
         contentContainerStyle={styles.listContainer}
         showsVerticalScrollIndicator={false}
       >
-        {DUMMY_RECIPES.map((recipe) => (
-          <RecipeCard
+        {filteredRecipes.map((recipe) => (
+          <TouchableOpacity
             key={recipe.id}
-            title={recipe.title}
-            category={recipe.category}
-            time={recipe.time}
-            price={recipe.price}
-            imageUrl={recipe.imageUrl}
-          />
+            activeOpacity={0.8}
+            onPress={() =>
+              router.push({
+                pathname: "/detail",
+                params: {
+                  title: recipe.title,
+                  category: recipe.category,
+                  time: recipe.time,
+                  price: recipe.price,
+                  imageUrl: recipe.imageUrl,
+                },
+              })
+            }
+          >
+            <RecipeCard
+              title={recipe.title}
+              category={recipe.category}
+              time={recipe.time}
+              price={recipe.price}
+              imageUrl={recipe.imageUrl}
+            />
+          </TouchableOpacity>
         ))}
       </ScrollView>
     </SafeAreaView>

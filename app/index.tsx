@@ -9,93 +9,70 @@ import {
   View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { fetchRecipes, searchRecipesFromApi } from "../services/recipeService";
+import ErrorMessage from "../src/components/ErrorMessage";
+import Loading from "../src/components/Loading";
 import RecipeCard from "../src/components/RecipeCard";
 import SearchBar from "../src/components/SearchBar";
-
-const DUMMY_RECIPES = [
-  {
-    id: "1",
-    title: "Nasi Goreng tanggal Tua",
-    category: "Serba Telur",
-    time: "10 Menit",
-    price: "~Rp 7.000",
-    imageUrl:
-      "https://images.unsplash.com/photo-1603133872878-684f208fb84b?q=80&w=500",
-    ingredients: [
-      "1 piring nasi dingin",
-      "1 butir telur",
-      "2 siung bawang putih",
-      "Kecap manis & garam secukupnya",
-    ],
-    steps: [
-      "Cincang bawang putih lalu tumis hingga harum.",
-      "Masukkan telur, orak-arik hingga matang.",
-      "Masukkan nasi, tambahkan kecap dan garam.",
-      "Aduk rata hingga matang dan sajikan.",
-    ],
-  },
-  {
-    id: "2",
-    title: "Omelet Mie Instant Spesial Kos",
-    category: "Olahan Mie",
-    time: "15 Menit",
-    price: "~Rp 6.000",
-    imageUrl:
-      "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=500",
-    ingredients: [
-      "1 bungkus mie instan",
-      "2 butir telur",
-      "1 batang daun bawang",
-    ],
-    steps: [
-      "Rebus mie setengah matang, tiriskan.",
-      "Kocok telur bersama bumbu mie dan daun bawang.",
-      "Campurkan mie ke dalam kocokan telur.",
-      "Goreng dengan api kecil sampai matang kecokelatan.",
-    ],
-  },
-  {
-    id: "3",
-    title: "Tumis Tahu Tempe Kecap",
-    category: "Hemat & Sehat",
-    time: "12 Menit",
-    price: "~Rp 10.000",
-    imageUrl:
-      "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=500",
-    ingredients: [
-      "1 papan tempe & 2 kotak tahu",
-      "3 siung bawang merah & putih",
-      "2 buah cabai merah",
-      "3 sdm kecap manis",
-    ],
-    steps: [
-      "Potong dadu tahu dan tempe, goreng setengah matang.",
-      "Tumis bawang dan cabai sampai harum.",
-      "Masukkan tahu, tempe, kecap, dan sedikit air.",
-      "Masak hingga bumbu meresap.",
-    ],
-  },
-];
+import { Recipe } from "../types/recipe";
 
 export default function Page() {
   const router = useRouter();
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const loadRecipes = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const data = await fetchRecipes();
+      setRecipes(data);
+    } catch (err: any) {
+      setError(err.message || "Terjadi kesalahan saat memuat resep");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    console.log("Halaman utama dirender, pencarian aktif:", searchQuery);
-  }, [searchQuery]);
+    loadRecipes();
+  }, []);
 
-  const filteredRecipes = DUMMY_RECIPES.filter((recipe) =>
-    recipe.title.toLowerCase().includes(searchQuery.toLowerCase()),
-  );
+  useEffect(() => {
+    if (searchQuery.trim() === "") {
+      loadRecipes();
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setLoading(true);
+      searchRecipesFromApi(searchQuery)
+        .then((results) => {
+          setRecipes(results);
+          setError(null);
+        })
+        .catch((err) => {
+          setError(err.message || "Gagal mencari resep");
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    }, 400);
+
+    return () => clearTimeout(timer);
+  }, [searchQuery]);
 
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" />
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>🍳 Resep Anak Kos</Text>
+        <Text style={styles.headerTitle}>
+          🍳 Resep Kuliner Nusantara & Global
+        </Text>
         <Text style={styles.headerSubtitle}>
-          Makan enak, hemat, dan practical
+          Data resep realtime terhubung dengan External API
         </Text>
       </View>
 
@@ -105,48 +82,37 @@ export default function Page() {
         contentContainerStyle={styles.listContainer}
         showsVerticalScrollIndicator={false}
       >
-        {filteredRecipes.map((recipe) => (
-          <TouchableOpacity
-            key={recipe.id}
-            activeOpacity={0.8}
-            onPress={() =>
-              router.push({
-                pathname: "/detail",
-                params: {
-                  title: recipe.title,
-                  category: recipe.category,
-                  time: recipe.time,
-                  price: recipe.price,
-                  imageUrl: recipe.imageUrl,
-                  ingredients: JSON.stringify(recipe.ingredients),
-                  steps: JSON.stringify(recipe.steps),
-                },
-              })
-            }
-          >
-            <RecipeCard
-              title={recipe.title}
-              category={recipe.category}
-              time={recipe.time}
-              price={recipe.price}
-              imageUrl={recipe.imageUrl}
+        {loading ? (
+          <Loading message="Mengambil daftar resep dari server..." />
+        ) : error ? (
+          <ErrorMessage message={error} onRetry={loadRecipes} />
+        ) : recipes.length === 0 ? (
+          <View style={styles.emptyContainer}>
+            <Text style={styles.emptyText}>Tidak ada resep yang cocok.</Text>
+          </View>
+        ) : (
+          recipes.map((recipe) => (
+            <TouchableOpacity
+              key={recipe.id}
+              activeOpacity={0.8}
               onPress={() =>
                 router.push({
                   pathname: "/detail",
-                  params: {
-                    title: recipe.title,
-                    category: recipe.category,
-                    time: recipe.time,
-                    price: recipe.price,
-                    imageUrl: recipe.imageUrl,
-                    ingredients: JSON.stringify(recipe.ingredients),
-                    steps: JSON.stringify(recipe.steps),
-                  },
+                  params: { id: recipe.id.toString() },
                 })
               }
-            />
-          </TouchableOpacity>
-        ))}
+            >
+              <RecipeCard
+                title={recipe.name}
+                category={recipe.cuisine}
+                time={`${recipe.prepTimeMinutes + recipe.cookTimeMinutes} Menit`}
+                difficulty={recipe.difficulty}
+                rating={recipe.rating}
+                imageUrl={recipe.image}
+              />
+            </TouchableOpacity>
+          ))
+        )}
       </ScrollView>
     </SafeAreaView>
   );
@@ -166,16 +132,24 @@ const styles = StyleSheet.create({
     borderBottomColor: "#EEEEEE",
   },
   headerTitle: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: "bold",
     color: "#1A1A1A",
   },
   headerSubtitle: {
-    fontSize: 14,
+    fontSize: 13,
     color: "#777777",
     marginTop: 2,
   },
   listContainer: {
     padding: 20,
+  },
+  emptyContainer: {
+    paddingVertical: 50,
+    alignItems: "center",
+  },
+  emptyText: {
+    fontSize: 14,
+    color: "#888888",
   },
 });

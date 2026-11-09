@@ -15,7 +15,7 @@ import SearchBar from "../src/components/SearchBar";
 const DUMMY_RECIPES = [
   {
     id: "1",
-    title: "Nasi Goreng Tang tanggal Tua",
+    title: "Nasi Goreng tanggal Tua",
     category: "Serba Telur",
     time: "10 Menit",
     price: "~Rp 7.000",
@@ -81,7 +81,6 @@ export default function Page() {
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
 
-  // Penambahan useEffect untuk memenuhi kriteria penilaian Modul 2
   useEffect(() => {
     console.log("Halaman utama dirender, pencarian aktif:", searchQuery);
   }, [searchQuery]);

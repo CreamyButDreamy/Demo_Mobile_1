@@ -1,10 +1,8 @@
 import { Recipe } from "../types/recipe";
 import { delay, validateApiResponse } from "../utils/delay";
 
-// Endpoint REST API Publik Cloud berbasis GitHub (My-JSON-Server & GitHub Raw)
-const BASE_URL =
-  "https://my-json-server.typicode.com/CreamyButDreamy/Demo_Mobile_1/recipes";
-const RAW_URL =
+// Endpoint REST API Publik Cloud di-host di GitHub CDN
+const API_URL =
   "https://raw.githubusercontent.com/CreamyButDreamy/Demo_Mobile_1/master/db.json";
 
 /**
@@ -12,29 +10,17 @@ const RAW_URL =
  * Memenuhi kriteria penilaian: 'Mengambil data dari External API' & 'Custom & Pre-built Async Function'.
  */
 export async function fetchRecipes(): Promise<Recipe[]> {
-  await delay(500);
+  await delay(400);
 
-  try {
-    const response = await fetch(BASE_URL);
-    if (response.ok) {
-      const data: Recipe[] = await response.json();
-      if (Array.isArray(data) && data.length > 0) {
-        return data;
-      }
-    }
-  } catch (err) {
-    console.warn("My-JSON-Server pending, mencoba endpoint RAW...", err);
-  }
-
-  // Fallback endpoint cadangan via GitHub Raw API
-  const rawResponse = await fetch(RAW_URL);
-  if (!rawResponse.ok) {
+  const response = await fetch(API_URL);
+  if (!response.ok) {
     throw new Error(
-      `Gagal memuat resep dari server (Status: ${rawResponse.status})`,
+      `Gagal memuat resep dari server (Status: ${response.status})`,
     );
   }
-  const rawData = await rawResponse.json();
-  return rawData.recipes;
+
+  const data = await response.json();
+  return data.recipes;
 }
 
 /**
@@ -43,31 +29,28 @@ export async function fetchRecipes(): Promise<Recipe[]> {
  */
 export function fetchRecipeById(id: number | string): Promise<Recipe> {
   return new Promise((resolve, reject) => {
-    fetch(`${BASE_URL}/${id}`)
+    fetch(API_URL)
       .then((response) => {
         if (!response.ok) {
-          // Jika detail spesifik di My-JSON-Server belum terindeks, cari dari dataset lengkap
-          return fetch(RAW_URL)
-            .then((res) => res.json())
-            .then((data) => {
-              const item = data.recipes.find(
-                (r: Recipe) => r.id.toString() === id.toString(),
-              );
-              if (!item) {
-                return validateApiResponse(
-                  false,
-                  `Resep dengan ID ${id} tidak ditemukan`,
-                ).then(() => {
-                  throw new Error("Resep tidak ditemukan di server");
-                });
-              }
-              return item;
-            });
+          throw new Error(`Koneksi server gagal (Status: ${response.status})`);
         }
         return response.json();
       })
-      .then((recipe: Recipe) => {
-        resolve(recipe);
+      .then((data) => {
+        const item: Recipe | undefined = data.recipes.find(
+          (r: Recipe) => r.id.toString() === id.toString(),
+        );
+
+        if (!item) {
+          return validateApiResponse(
+            false,
+            `Resep dengan ID ${id} tidak ditemukan`,
+          ).then(() => {
+            throw new Error(`Resep dengan ID ${id} tidak ditemukan`);
+          });
+        }
+
+        resolve(item);
       })
       .catch((error) => {
         reject(error instanceof Error ? error : new Error(String(error)));
@@ -81,26 +64,20 @@ export function fetchRecipeById(id: number | string): Promise<Recipe> {
 export function searchRecipesFromApi(query: string): Promise<Recipe[]> {
   const searchQuery = query.toLowerCase().trim();
 
-  return fetch(`${BASE_URL}?q=${encodeURIComponent(searchQuery)}`)
+  return fetch(API_URL)
     .then((response) => {
       if (!response.ok) {
-        throw new Error("Gagal mengambil hasil pencarian");
+        throw new Error("Gagal mengambil data dari server");
       }
       return response.json();
     })
-    .then((results: Recipe[]) => {
-      if (Array.isArray(results) && results.length > 0) {
-        return results;
-      }
-      // Fallback pencarian dari database resep
-      return fetch(RAW_URL)
-        .then((res) => res.json())
-        .then((data) =>
-          data.recipes.filter(
-            (r: Recipe) =>
-              r.name.toLowerCase().includes(searchQuery) ||
-              r.cuisine.toLowerCase().includes(searchQuery),
-          ),
-        );
+    .then((data) => {
+      const results: Recipe[] = data.recipes.filter(
+        (r: Recipe) =>
+          r.name.toLowerCase().includes(searchQuery) ||
+          r.cuisine.toLowerCase().includes(searchQuery) ||
+          (r.tags && r.tags.some((t: string) => t.toLowerCase().includes(searchQuery))),
+      );
+      return results;
     });
 }

@@ -1,10 +1,12 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-interface RecipeProps {
+interface RecipeCardProps {
   title: string;
   category: string;
   time: string;
-  price: string;
+  price?: string;
+  difficulty?: string;
+  rating?: number;
   imageUrl: string;
   onPress?: () => void;
 }
@@ -14,18 +16,31 @@ export default function RecipeCard({
   category,
   time,
   price,
+  difficulty,
+  rating,
   imageUrl,
   onPress,
-}: RecipeProps) {
+}: RecipeCardProps) {
   return (
     <TouchableOpacity style={styles.card} activeOpacity={0.8} onPress={onPress}>
       <Image source={{ uri: imageUrl }} style={styles.image} />
       <View style={styles.infoContainer}>
-        <Text style={styles.category}>{category}</Text>
-        <Text style={styles.title}>{title}</Text>
+        <View style={styles.headerRow}>
+          <Text style={styles.category}>{category}</Text>
+          {rating ? (
+            <Text style={styles.ratingText}>⭐ {rating.toFixed(1)}</Text>
+          ) : null}
+        </View>
+        <Text style={styles.title} numberOfLines={2}>
+          {title}
+        </Text>
         <View style={styles.detailsRow}>
           <Text style={styles.detailText}>⏱️ {time}</Text>
-          <Text style={styles.priceText}>💰 {price}</Text>
+          {difficulty ? (
+            <Text style={styles.difficultyBadge}>{difficulty}</Text>
+          ) : price ? (
+            <Text style={styles.priceText}>💰 {price}</Text>
+          ) : null}
         </View>
       </View>
     </TouchableOpacity>
@@ -46,16 +61,27 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: 150,
+    height: 160,
+    backgroundColor: "#f2f2f2",
   },
   infoContainer: {
     padding: 12,
+  },
+  headerRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   category: {
     fontSize: 12,
     color: "#FF6B6B",
     fontWeight: "bold",
     textTransform: "uppercase",
+  },
+  ratingText: {
+    fontSize: 13,
+    fontWeight: "bold",
+    color: "#F39C12",
   },
   title: {
     fontSize: 18,
@@ -66,6 +92,7 @@ const styles = StyleSheet.create({
   detailsRow: {
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
     marginTop: 6,
   },
   detailText: {
@@ -76,5 +103,14 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: "600",
     color: "#2EC4B6",
+  },
+  difficultyBadge: {
+    fontSize: 12,
+    fontWeight: "600",
+    color: "#4A90E2",
+    backgroundColor: "#EBF5FB",
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    borderRadius: 6,
   },
 });

@@ -78,6 +78,9 @@ export default function DetailScreen() {
             <Text style={styles.infoBadge}>
               ⏱️ {recipe.prepTimeMinutes + recipe.cookTimeMinutes} Menit
             </Text>
+            {recipe.price ? (
+              <Text style={styles.infoBadge}>💰 {recipe.price}</Text>
+            ) : null}
             <Text style={styles.infoBadge}>🔥 {recipe.difficulty}</Text>
             <Text style={styles.infoBadge}>⭐ {recipe.rating.toFixed(1)}</Text>
           </View>

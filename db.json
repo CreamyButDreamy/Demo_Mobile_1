@@ -1,0 +1,465 @@
+{
+  "recipes": [
+    {
+      "id": 1,
+      "name": "Nasi Goreng Tanggal Tua",
+      "ingredients": [
+        "1 piring nasi dingin semalam",
+        "1 butir telur ayam",
+        "2 siung bawang putih (cincang)",
+        "2 sdm kecap manis",
+        "1 sdt garam & penyedap rasa",
+        "1 sdm minyak goreng"
+      ],
+      "instructions": [
+        "Panaskan minyak di wajan kecil, tumis bawang putih hingga harum.",
+        "Masukkan telur, orak-arik hingga setengah matang.",
+        "Masukkan nasi dingin, aduk cepat dengan api sedang.",
+        "Tambahkan kecap manis, garam, dan penyedap rasa.",
+        "Aduk hingga rata dan kecap meresap sempurna. Sajikan hangat."
+      ],
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 5,
+      "servings": 1,
+      "difficulty": "Mudah",
+      "cuisine": "Serba Telur",
+      "caloriesPerServing": 340,
+      "tags": ["Nasi", "Telur", "Hemat", "Sarapan"],
+      "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?q=80&w=800",
+      "rating": 4.8,
+      "reviewCount": 142,
+      "mealType": ["Makan Malam", "Sarapan"],
+      "price": "~Rp 7.000"
+    },
+    {
+      "id": 2,
+      "name": "Omelet Mie Instan Spesial Kos",
+      "ingredients": [
+        "1 bungkus mie instan goreng / kuah",
+        "2 butir telur ayam",
+        "1 batang daun bawang (iris halus)",
+        "Bumbu mie instan bawaan",
+        "1 sdm minyak / mentega"
+      ],
+      "instructions": [
+        "Rebus mie instan hingga setengah matang, tiriskan airnya.",
+        "Kocok telur bersama bumbu mie instan dan irisan daun bawang.",
+        "Campurkan mie ke dalam kocokan telur, aduk rata.",
+        "Panaskan wajan dengan sedikit minyak, tuang adonan mie telur.",
+        "Goreng dengan api kecil hingga bagian bawah kecokelatan, balik dan masak hingga matang."
+      ],
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "servings": 1,
+      "difficulty": "Mudah",
+      "cuisine": "Olahan Mie",
+      "caloriesPerServing": 420,
+      "tags": ["Mie", "Telur", "Praktis", "Favorit"],
+      "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=800",
+      "rating": 4.9,
+      "reviewCount": 210,
+      "mealType": ["Makan Malam", "Camilan"],
+      "price": "~Rp 6.000"
+    },
+    {
+      "id": 3,
+      "name": "Tumis Tahu Tempe Kecap Manis",
+      "ingredients": [
+        "1 papan tempe (potong dadu)",
+        "2 kotak tahu putih (potong dadu)",
+        "3 siung bawang merah & 2 siung bawang putih",
+        "3 buah cabai rawit merah",
+        "3 sdm kecap manis & 1 sdm saus tiram",
+        "50 ml air"
+      ],
+      "instructions": [
+        "Goreng tahu dan tempe hingga berkulit setengah matang, tiriskan.",
+        "Tumis bawang merah, bawang putih, dan cabai hingga harum.",
+        "Masukkan tahu dan tempe goreng, aduk rata.",
+        "Tuang kecap manis, saus tiram, garam, dan sedikit air.",
+        "Masak hingga air menyusut dan bumbu meresap gurih."
+      ],
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "servings": 2,
+      "difficulty": "Mudah",
+      "cuisine": "Hemat & Sehat",
+      "caloriesPerServing": 280,
+      "tags": ["Tempe", "Tahu", "Vegetarian", "Sehat"],
+      "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=800",
+      "rating": 4.7,
+      "reviewCount": 89,
+      "mealType": ["Makan Siang", "Makan Malam"],
+      "price": "~Rp 10.000"
+    },
+    {
+      "id": 4,
+      "name": "Telur Dadar Crispy Daun Bawang",
+      "ingredients": [
+        "2 butir telur ayam",
+        "1 sdm tepung beras / terigu",
+        "2 batang daun bawang (iris banyak)",
+        "1/2 sdt garam & kaldu bubuk",
+        "Minyak goreng agak banyak"
+      ],
+      "instructions": [
+        "Kocok telur bersama tepung terigu, daun bawang, garam, dan kaldu bubuk hingga berbusa.",
+        "Panaskan minyak agak banyak di wajan sampai benar-benar panas.",
+        "Tuang telur dari posisi agak tinggi agar bersarang dan crispy.",
+        "Goreng hingga pinggirannya garing keemasan, lalu balik perlahan.",
+        "Angkat, tiriskan minyak, dan nikmati dengan nasi hangat."
+      ],
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 5,
+      "servings": 1,
+      "difficulty": "Mudah",
+      "cuisine": "Serba Telur",
+      "caloriesPerServing": 210,
+      "tags": ["Telur", "Crispy", "Cepat"],
+      "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=800",
+      "rating": 4.8,
+      "reviewCount": 95,
+      "mealType": ["Sarapan", "Lauk Hemat"],
+      "price": "~Rp 5.500"
+    },
+    {
+      "id": 5,
+      "name": "Nasi Gila Sosis Telur Anak Kos",
+      "ingredients": [
+        "1 piring nasi putih hangat",
+        "2 buah sosis sapi/ayam (iris serong)",
+        "3 butir bakso sapi (iris tipis)",
+        "1 butir telur ayam",
+        "2 sdm saus sambal & 1 sdm saus tomat",
+        "2 sdm kecap manis & 1 sdt lada bubuk"
+      ],
+      "instructions": [
+        "Tumis bawang putih hingga harum, masukkan telur lalu orak-arik kasar.",
+        "Masukkan potongan sosis dan bakso, aduk hingga berubah warna.",
+        "Tambahkan kecap manis, saus sambal, saus tomat, garam, dan lada.",
+        "Beri 2 sendok makan air agar bumbu basah mengental.",
+        "Siramkan tumisan gila ini di atas nasi putih panas."
+      ],
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "servings": 1,
+      "difficulty": "Sedang",
+      "cuisine": "Olahan Sosis",
+      "caloriesPerServing": 460,
+      "tags": ["Nasi Gila", "Sosis", "Gurih", "Mantap"],
+      "image": "https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=800",
+      "rating": 4.9,
+      "reviewCount": 178,
+      "mealType": ["Makan Malam"],
+      "price": "~Rp 14.000"
+    },
+    {
+      "id": 6,
+      "name": "Mie Dok-Dok Kuah Kental",
+      "ingredients": [
+        "1 bungkus mie instan kuah (rasa kari/ayam bawang)",
+        "1 butir telur ayam",
+        "2 lembar sawi hijau / kol (iris)",
+        "3 buah cabai rawit (ulek kasar)",
+        "1 sdm kecap manis & 1 sdm saus cabai",
+        "300 ml air"
+      ],
+      "instructions": [
+        "Tumis cabai rawit dan bawang putih dengan sedikit minyak hingga harum.",
+        "Tuang air 300 ml, biarkan hingga mendidih.",
+        "Masukkan mie instan dan sayuran sawi.",
+        "Ceplok telur ke dalam kuah, aduk perlahan agar kuahnya mengental gurih.",
+        "Tambahkan bumbu mie, saus cabai, dan kecap manis. Sajikan selagi panas."
+      ],
+      "prepTimeMinutes": 4,
+      "cookTimeMinutes": 8,
+      "servings": 1,
+      "difficulty": "Mudah",
+      "cuisine": "Olahan Mie",
+      "caloriesPerServing": 390,
+      "tags": ["Mie Kuah", "Pedas", "Hangat"],
+      "image": "https://images.unsplash.com/photo-1612927601601-6638404737ce?q=80&w=800",
+      "rating": 4.9,
+      "reviewCount": 310,
+      "mealType": ["Makan Malam", "Hujan"],
+      "price": "~Rp 8.000"
+    },
+    {
+      "id": 7,
+      "name": "Ayam Suwir Pedas Kemangi Kos",
+      "ingredients": [
+        "150 gram dada ayam fillet (rebus & suwir)",
+        "1 ikat daun kemangi segar",
+        "4 buah cabai merah & 4 cabai rawit",
+        "3 siung bawang merah & 2 bawang putih",
+        "1 sdm kecap manis & 1/2 sdt garam",
+        "50 ml air kaldu rebusan ayam"
+      ],
+      "instructions": [
+        "Rebus daging ayam hingga matang, tiriskan lalu suwir-suwir.",
+        "Haluskan cabai dan bawang, lalu tumis hingga harum matang.",
+        "Masukkan ayam suwir, tambahkan garam, penyedap, kecap, dan air kaldu.",
+        "Masak hingga bumbu meresap ke dalam serat ayam.",
+        "Terakhir masukkan daun kemangi, aduk sebentar hingga layu lalu angkat."
+      ],
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "servings": 2,
+      "difficulty": "Sedang",
+      "cuisine": "Olahan Ayam",
+      "caloriesPerServing": 320,
+      "tags": ["Ayam", "Pedas", "Kemangi", "Lauk Mewah"],
+      "image": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=800",
+      "rating": 4.9,
+      "reviewCount": 164,
+      "mealType": ["Makan Siang", "Makan Malam"],
+      "price": "~Rp 17.500"
+    },
+    {
+      "id": 8,
+      "name": "Tumis Kangkung Belacan Kilat",
+      "ingredients": [
+        "1 ikat kangkung segar (petik daunnya)",
+        "3 siung bawang merah & 2 bawang putih",
+        "3 buah cabai rawit merah",
+        "1/2 sdt terasi bakar (belacan)",
+        "1 sdm saus tiram & sedikit garam",
+        "3 sdm air"
+      ],
+      "instructions": [
+        "Tumis bawang merah, bawang putih, cabai, dan terasi hingga wangi semerbak.",
+        "Besarkan api kompor, masukkan kangkung yang sudah dicuci bersih.",
+        "Beri saus tiram, sedikit garam, dan 3 sdm air.",
+        "Aduk cepat selama 2-3 menit saja agar kangkung tetap hijau renyah.",
+        "Angkat dan sajikan segera selagi hangat."
+      ],
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 4,
+      "servings": 2,
+      "difficulty": "Mudah",
+      "cuisine": "Sayur Hemat",
+      "caloriesPerServing": 110,
+      "tags": ["Kangkung", "Sayur", "Cepat", "Sehat"],
+      "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=800",
+      "rating": 4.6,
+      "reviewCount": 78,
+      "mealType": ["Makan Siang"],
+      "price": "~Rp 7.000"
+    },
+    {
+      "id": 9,
+      "name": "Sambal Tempe Penyet Kemangi",
+      "ingredients": [
+        "1/2 papan tempe (potong tebal & goreng garing)",
+        "8 buah cabai rawit merah & hijau",
+        "1 siung bawang putih kecil",
+        "1/2 sdt terasi & 1/2 sdt garam & gula",
+        "Segenggam daun kemangi segar"
+      ],
+      "instructions": [
+        "Goreng tempe hingga matang kecokelatan dan renyah.",
+        "Ulek cabai rawit, bawang putih, terasi, garam, dan gula di atas cobek.",
+        "Siram sambal dengan 1 sendok makan minyak panas bekas goreng tempe.",
+        "Letakkan tempe hangat di atas sambal, lalu penyet (tekan) agak hancur.",
+        "Taburkan daun kemangi, aduk rata dan nikmati dengan nasi hangat."
+      ],
+      "prepTimeMinutes": 4,
+      "cookTimeMinutes": 6,
+      "servings": 1,
+      "difficulty": "Mudah",
+      "cuisine": "Serba Sambal",
+      "caloriesPerServing": 220,
+      "tags": ["Tempe", "Penyet", "Pedas", "Hemat"],
+      "image": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?q=80&w=800",
+      "rating": 4.8,
+      "reviewCount": 120,
+      "mealType": ["Makan Siang", "Makan Malam"],
+      "price": "~Rp 6.500"
+    },
+    {
+      "id": 10,
+      "name": "Sup Telur Tomat Kuah Bening",
+      "ingredients": [
+        "2 buah tomat merah masak (potong juring)",
+        "2 butir telur ayam (kocok lepas)",
+        "2 siung bawang putih (geprek cincang)",
+        "1 batang daun bawang (iris tipis)",
+        "1 sdt minyak wijen / kaldu bubuk & garam",
+        "400 ml air"
+      ],
+      "instructions": [
+        "Tumis bawang putih dan tomat hingga tomat layu berair.",
+        "Tuang 400 ml air, masak hingga mendidih dan kuah berubah kemerahan.",
+        "Bumbui dengan garam, lada bubuk, kaldu ayam, dan minyak wijen.",
+        "Kecilkan api, tuang kocokan telur sambil diaduk memutar agar berserabut cantik.",
+        "Taburi daun bawang, matikan api dan sajikan kuah segar ini."
+      ],
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 6,
+      "servings": 2,
+      "difficulty": "Mudah",
+      "cuisine": "Kuah Segar",
+      "caloriesPerServing": 160,
+      "tags": ["Sup", "Tomat", "Telur", "Segar"],
+      "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=800",
+      "rating": 4.7,
+      "reviewCount": 85,
+      "mealType": ["Makan Malam", "Sehat"],
+      "price": "~Rp 8.500"
+    },
+    {
+      "id": 11,
+      "name": "Bihun Goreng Kecap Sederhana",
+      "ingredients": [
+        "1 keping bihun jagung (seduh air panas & tiriskan)",
+        "1 butir telur ayam",
+        "2 lembar kol & 1 batang daun bawang",
+        "2 siung bawang putih & 2 bawang merah",
+        "2 sdm kecap manis & 1 sdm saus tiram",
+        "Garam & merica secukupnya"
+      ],
+      "instructions": [
+        "Lumuri bihun yang sudah ditiriskan dengan 1 sdm kecap manis dan 1 sdt minyak agar tidak menggumpal.",
+        "Tumis bawang merah dan bawang putih hingga wangi.",
+        "Sisihkan bumbu di tepi wajan, masukkan telur lalu orak-arik.",
+        "Masukkan sayuran kol dan daun bawang, tumis sebentar.",
+        "Masukkan bihun, tambahkan saus tiram, garam, dan merica. Aduk rata hingga matang."
+      ],
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 8,
+      "servings": 1,
+      "difficulty": "Mudah",
+      "cuisine": "Olahan Bihun",
+      "caloriesPerServing": 310,
+      "tags": ["Bihun", "Goreng", "Kecap", "Hemat"],
+      "image": "https://images.unsplash.com/photo-1585032226651-759b368d7246?q=80&w=800",
+      "rating": 4.6,
+      "reviewCount": 67,
+      "mealType": ["Sarapan", "Makan Malam"],
+      "price": "~Rp 9.000"
+    },
+    {
+      "id": 12,
+      "name": "Sosis Bakar Teflon Saus Mentega",
+      "ingredients": [
+        "4 buah sosis ayam / sapi (kerat-kerat spiral)",
+        "1 sdm margarin / mentega",
+        "2 sdm kecap manis",
+        "1 sdm saus tiram & 1 sdm saus tomat/sambal",
+        "Tusuk sate secukupnya (opsional)"
+      ],
+      "instructions": [
+        "Kerat-kerat badan sosis secara melingkar agar bumbu meresap mekar.",
+        "Campurkan kecap manis, saus tiram, dan saus sambal di mangkuk kecil.",
+        "Panaskan margarin di atas teflon, panggang sosis sambil dibolak-balik.",
+        "Oleskan saus racikan ke seluruh permukaan sosis.",
+        "Panggang hingga saus mengkaramelisasi kecokelatan lezat."
+      ],
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 7,
+      "servings": 1,
+      "difficulty": "Mudah",
+      "cuisine": "Olahan Sosis",
+      "caloriesPerServing": 290,
+      "tags": ["Sosis", "Teflon", "Praktis", "Camilan"],
+      "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=800",
+      "rating": 4.7,
+      "reviewCount": 115,
+      "mealType": ["Camilan", "Makan Malam"],
+      "price": "~Rp 13.000"
+    },
+    {
+      "id": 13,
+      "name": "Telur Balado Praktis Rice Cooker",
+      "ingredients": [
+        "3 butir telur ayam (rebus matang & kupas)",
+        "5 buah cabai merah keriting & 3 cabai rawit",
+        "3 siung bawang merah & 2 bawang putih",
+        "1 buah tomat ukuran sedang",
+        "1 sdm gula merah & 1/2 sdt garam",
+        "2 sdm minyak goreng"
+      ],
+      "instructions": [
+        "Goreng telur rebus sebentar hingga berkulit kecokelatan.",
+        "Haluskan cabai, bawang, dan tomat (bisa diulek kasar).",
+        "Tumis bumbu balado hingga harum dan matang berminyak.",
+        "Bumbui dengan gula merah dan garam, cicipi rasanya.",
+        "Masukkan telur rebus goreng, aduk rata hingga terselimuti bumbu balado merah merona."
+      ],
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 10,
+      "servings": 2,
+      "difficulty": "Sedang",
+      "cuisine": "Serba Telur",
+      "caloriesPerServing": 270,
+      "tags": ["Telur", "Balado", "Pedas", "Awet"],
+      "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800",
+      "rating": 4.8,
+      "reviewCount": 98,
+      "mealType": ["Lauk Makan Siang"],
+      "price": "~Rp 11.000"
+    },
+    {
+      "id": 14,
+      "name": "Terong Krispi Saus Tiram",
+      "ingredients": [
+        "1 buah terong ungu (iris serong bulat)",
+        "4 sdm tepung bumbu serbaguna",
+        "2 siung bawang putih (cincang)",
+        "2 buah cabai rawit (iris tipis)",
+        "1 sdm saus tiram & 1 sdt kecap asin",
+        "Minyak untuk menggoreng"
+      ],
+      "instructions": [
+        "Baluri irisan terong dengan tepung bumbu basah, lalu gulingkan ke tepung kering.",
+        "Goreng terong dalam minyak panas hingga renyah garing, tiriskan.",
+        "Tumis bawang putih dan cabai rawit hingga wangi.",
+        "Masukkan saus tiram, kecap asin, dan 2 sdm air, aduk hingga mendidih kental.",
+        "Siramkan saus di atas terong krispi sesaat sebelum disantap."
+      ],
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 8,
+      "servings": 1,
+      "difficulty": "Mudah",
+      "cuisine": "Sayur Hemat",
+      "caloriesPerServing": 180,
+      "tags": ["Terong", "Krispi", "Sayur", "Unik"],
+      "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=800",
+      "rating": 4.7,
+      "reviewCount": 54,
+      "mealType": ["Lauk Tambahan"],
+      "price": "~Rp 8.000"
+    },
+    {
+      "id": 15,
+      "name": "Ayam Goreng Lengkuas Ala Warteg",
+      "ingredients": [
+        "1 potong paha / dada ayam",
+        "2 ruas lengkuas (parut halus)",
+        "2 siung bawang putih & 1/2 sdt kunyit bubuk",
+        "1/2 sdt ketumbar bubuk & 1/2 sdt garam",
+        "1 lembar daun salam",
+        "Minyak untuk menggoreng"
+      ],
+      "instructions": [
+        "Ungkep ayam bersama parutan lengkuas, bawang putih, kunyit, ketumbar, salam, dan sedikit air hingga matang meresap.",
+        "Tiriskan ayam dan ampas lengkuasnya.",
+        "Goreng ayam hingga kuning kecokelatan, angkat.",
+        "Goreng remahan parutan lengkuas hingga renyah keemasan, tiriskan.",
+        "Sajikan ayam goreng dengan taburan kremesan lengkuas yang gurih melimpah."
+      ],
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "servings": 1,
+      "difficulty": "Sedang",
+      "cuisine": "Olahan Ayam",
+      "caloriesPerServing": 380,
+      "tags": ["Ayam", "Goreng", "Lengkuas", "Spesial"],
+      "image": "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=800",
+      "rating": 4.9,
+      "reviewCount": 230,
+      "mealType": ["Makan Siang Mewah"],
+      "price": "~Rp 18.000"
+    }
+  ]
+}

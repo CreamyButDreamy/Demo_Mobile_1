@@ -68,11 +68,9 @@ export default function Page() {
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" />
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>
-          🍳 Resep Kuliner Nusantara & Global
-        </Text>
+        <Text style={styles.headerTitle}>🍳 Resep Masakan Anak Kos</Text>
         <Text style={styles.headerSubtitle}>
-          Data resep realtime terhubung dengan External API
+          Menu hemat, praktis & serba cepat (Live API)
         </Text>
       </View>
 
@@ -92,25 +90,22 @@ export default function Page() {
           </View>
         ) : (
           recipes.map((recipe) => (
-            <TouchableOpacity
+            <RecipeCard
               key={recipe.id}
-              activeOpacity={0.8}
+              title={recipe.name}
+              category={recipe.cuisine}
+              time={`${recipe.prepTimeMinutes + recipe.cookTimeMinutes} Menit`}
+              price={recipe.price}
+              difficulty={recipe.difficulty}
+              rating={recipe.rating}
+              imageUrl={recipe.image}
               onPress={() =>
                 router.push({
                   pathname: "/detail",
                   params: { id: recipe.id.toString() },
                 })
               }
-            >
-              <RecipeCard
-                title={recipe.name}
-                category={recipe.cuisine}
-                time={`${recipe.prepTimeMinutes + recipe.cookTimeMinutes} Menit`}
-                difficulty={recipe.difficulty}
-                rating={recipe.rating}
-                imageUrl={recipe.image}
-              />
-            </TouchableOpacity>
+            />
           ))
         )}
       </ScrollView>
